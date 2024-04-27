@@ -7,7 +7,7 @@ const Features = () => {
     <section className="pb-8 pt-20 dark:bg-dark lg:pb-[70px] lg:pt-[120px]">
       <div className="container">
         <SectionTitle
-          subtitle="Features"
+          subtitle="Use Cases"
           title="Main Features Of Play"
           paragraph="There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form."
         />

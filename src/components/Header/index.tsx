@@ -46,9 +46,9 @@ const Header = () => {
   return (
     <>
       <header
-        className={`ud-header left-0 top-0 z-40 flex w-full items-center ${
+        className={`ud-header left-0 top-30 z-40 flex w-full items-center border border-black p-3 rounded-lg shadow-lg ${
           sticky
-            ? "shadow-nav fixed z-[999] border-b border-stroke bg-white/80 backdrop-blur-[5px] dark:border-dark-3/20 dark:bg-dark/10"
+            ? "shadow-nav  border-b border-stroke bg-white/80 backdrop-blur-[5px] dark:border-dark-3/20 dark:bg-dark/10"
             : "absolute bg-transparent"
         }`}
       >
@@ -64,14 +64,14 @@ const Header = () => {
                 {pathUrl !== "/" ? (
                   <>
                     <Image
-                      src={`/images/logo/logo.svg`}
+                      src={`/images/logo/logo.png`}
                       alt="logo"
                       width={240}
                       height={30}
                       className="header-logo w-full dark:hidden"
                     />
                     <Image
-                      src={`/images/logo/logo-white.svg`}
+                      src={`/images/logo/logo.png `}
                       alt="logo"
                       width={240}
                       height={30}
@@ -83,8 +83,8 @@ const Header = () => {
                     <Image
                       src={`${
                         sticky
-                          ? "/images/logo/logo.svg"
-                          : "/images/logo/logo-white.svg"
+                          ? "/images/logo/logo.png"
+                          : "/images/logo/logo.png"
                       }`}
                       alt="logo"
                       width={140}
@@ -92,7 +92,7 @@ const Header = () => {
                       className="header-logo w-full dark:hidden"
                     />
                     <Image
-                      src={"/images/logo/logo-white.svg"}
+                      src={"/images/logo/logo.png"}
                       alt="logo"
                       width={140}
                       height={30}
@@ -102,7 +102,7 @@ const Header = () => {
                 )}
               </Link>
             </div>
-            <div className="flex w-full items-center justify-between px-4">
+            <div className="flex w-full items-center justify-between px-4  ">
               <div>
                 <button
                   onClick={navbarToggleHandler}
@@ -140,16 +140,16 @@ const Header = () => {
                 </button>
                 <nav
                   id="navbarCollapse"
-                  className={`navbar absolute right-0 z-30 w-[250px] rounded border-[.5px] border-body-color/50 bg-white px-6 py-4 duration-300 dark:border-body-color/20 dark:bg-dark-2 lg:visible lg:static lg:w-auto lg:border-none lg:!bg-transparent lg:p-0 lg:opacity-100 lg:dark:bg-transparent ${
+                  className={`navbar absolute right-0 z-30 w-[250px] rounded border-[.5px] border-body-color/50 bg-neutral-500 px-6 py-4 duration-300 dark:border-body-color/20 dark:bg-dark-2 lg:visible lg:static lg:w-auto lg:border-none lg:!bg-transparent lg:p-0 lg:opacity-100 lg:dark:bg-transparent ${
                     navbarOpen
                       ? "visibility top-full opacity-100"
                       : "invisible top-[120%] opacity-0"
                   }`}
                 >
-                  <ul className="block lg:ml-8 lg:flex lg:gap-x-8 xl:ml-14 xl:gap-x-12">
+                  <ul className="block lg:ml-8 lg:flex lg:gap-x-8 xl:ml-14 xl:gap-x-12 font-bold text-dark">
                     {menuData.map((menuItem, index) =>
                       menuItem.path ? (
-                        <li key={index} className="group relative">
+                        <li key={index} className="group relative text-1xl ">
                           {pathUrl !== "/" ? (
                             <Link
                               onClick={navbarToggleHandler}
@@ -165,7 +165,7 @@ const Header = () => {
                             <Link
                               scroll={false}
                               href={menuItem.path}
-                              className={`ud-menu-scroll flex py-2 text-base lg:inline-flex lg:px-0 lg:py-6 ${
+                              className={`ud-menu-scroll flex py-2 text-base lg:inline-flex lg:px-0 lg:py-6 text-1xl  ${
                                 sticky
                                   ? "text-dark group-hover:text-primary dark:text-white dark:group-hover:text-primary"
                                   : "text-body-color dark:text-white lg:text-white"
@@ -242,7 +242,7 @@ const Header = () => {
                               <Link
                                 href={submenuItem.path}
                                 key={i}
-                                className={`block rounded px-4 py-[10px] text-sm ${
+                                className={`block rounded px-4 py-[10px] text-lg ${
                                   pathUrl === submenuItem.path
                                     ? "text-primary"
                                     : "text-body-color hover:text-primary dark:text-dark-6 dark:hover:text-primary"
@@ -250,10 +250,32 @@ const Header = () => {
                               >
                                 {submenuItem.title}
                               </Link>
+                              
                             ))}
                           </div>
+                          <div
+                            className={`submenu relative left-0 top-full w-[250px] rounded-sm bg-white p-4 transition-[top] duration-300 group-hover:opacity-100 dark:bg-dark-2 lg:invisible lg:absolute lg:top-[110%] lg:block lg:opacity-0 lg:shadow-lg lg:group-hover:visible lg:group-hover:top-full ${
+                              openIndex === index ? "!-left-[25px]" : "hidden"
+                            }`}
+                          >
+                            {menuItem?.submenu?.map((submenuItem: any, i) => (
+                              <Link
+                                href={submenuItem.path}
+                                key={i}
+                                className={`block rounded px-4 py-[10px] text-lg ${
+                                  pathUrl === submenuItem.path
+                                    ? "text-primary"
+                                    : "text-body-color hover:text-primary dark:text-dark-6 dark:hover:text-primary"
+                                }`}
+                              >
+                                {submenuItem.title}
+                              </Link>
+                              
+                            ))}
+                          </div>
+                          
                         </li>
-                      ),
+                      )
                     )}
                   </ul>
                 </nav>

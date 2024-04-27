@@ -3,27 +3,27 @@ import { Menu } from "@/types/menu";
 const menuData: Menu[] = [
   {
     id: 1,
-    title: "Home",
-    path: "/",
+    title: "Products",
+    path: "/products",
     newTab: false,
   },
   {
     id: 2,
-    title: "About",
-    path: "/about",
-    newTab: false,
+    title: "Solutions",
+    path: "/solutions",
+    newTab: true,
   },
   {
     id: 3,
-    title: "Pricing",
-    path: "/pricing",
-    newTab: false,
+    title: "FWaaS",
+    path: "/fwaas",
+    newTab: true,
   },
   {
     id: 5,
-    title: "Contact",
-    path: "/contact",
-    newTab: false,
+    title: "Partners",
+    path: "/partners",
+    newTab: true,
   },
   {
     id: 5,
@@ -33,7 +33,7 @@ const menuData: Menu[] = [
   },
   {
     id: 6,
-    title: "Pages",
+    title: "Resources",
     newTab: false,
     submenu: [
       {
